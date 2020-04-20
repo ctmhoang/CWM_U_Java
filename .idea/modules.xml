@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ahihi/Ahihi.iml" filepath="$PROJECT_DIR$/Ahihi/Ahihi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CWM_U_Java.iml" filepath="$PROJECT_DIR$/CWM_U_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Notes/Notes.iml" filepath="$PROJECT_DIR$/Notes/Notes.iml" />
+    </modules>
+  </component>
+</project>

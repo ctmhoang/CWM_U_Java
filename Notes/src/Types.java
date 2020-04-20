@@ -3,7 +3,8 @@ package com.codewithmosh;
 import java.text.NumberFormat;
 import java.util.Date;
 
-public class Main {
+public class Types
+{
 
   public static void main(String[] args) {
     // write your code here

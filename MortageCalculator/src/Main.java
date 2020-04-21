@@ -9,8 +9,15 @@ public class Main {
 
     Scanner input = new Scanner(System.in);
 
-    System.out.print("Principal: ");
-    double totalAmount = input.nextDouble();
+    System.out.print("Principal($1K - $1M): ");
+    double totalAmount = () -> {
+      double temp = input.nextDouble();
+      while (temp < 1_000 && temp > 1_000_000)
+    {
+      temp = input.nextDouble();
+    }
+      return temp;
+    };
 
     System.out.print("Annual Interest Rate: ");
     double monthlyRate = input.nextDouble() / MONTHS_PER_YEAR / PERCENTAGE_POINTS;

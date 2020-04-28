@@ -1,6 +1,7 @@
 import java.text.NumberFormat;
 import java.util.Scanner;
 import java.util.function.BiFunction;
+import java.util.stream.IntStream;
 
 public class Main {
   public static void main(String[] args) {
@@ -13,8 +14,17 @@ public class Main {
 
     double monthlyPaid = calMortgage(totalAmount, annualRate, periods);
 
-    String res = NumberFormat.getCurrencyInstance().format(monthlyPaid);
-    System.out.println("Montage: " + res);
+    printHeader("Mortgage");
+
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
+    String res = currency.format(monthlyPaid);
+    System.out.println("Monthly Payment: " + res);
+
+    printHeader("payment schedule");
+
+    double monthlyInterest = annualRate /12/100;
+    short paidTimes = (short) (periods * 12);
+    IntStream.range(1,periods * 12 + 1).mapToObj(k -> currency.format(getRemainingLoanBal(totalAmount,monthlyInterest,paidTimes, (short) k))).forEachOrdered(System.out::println);
   }
 
   public static double getNumInput(String prompt, double low, double high) {
@@ -44,4 +54,16 @@ public class Main {
         * (monthlyRate * Math.pow(1 + monthlyRate, timesToPay))
         / (Math.pow(1 + monthlyRate, timesToPay) - 1);
   }
+
+  public static void printHeader(String content)
+  {
+    System.out.println(content.toUpperCase());
+    System.out.println(new String(new char[content.length()]).replace('\0','-'));
+  }
+
+  public static double getRemainingLoanBal(double principle, double monthlyRates, short totPaidTimes, short alreadyPaidTimes)
+  {
+    return principle * (Math.pow(1 + monthlyRates, totPaidTimes) - Math.pow(1 + monthlyRates , alreadyPaidTimes)) / (Math.pow(1 + monthlyRates, totPaidTimes) - 1);
+  }
+
 }

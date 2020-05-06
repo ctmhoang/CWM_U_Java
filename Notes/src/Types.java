@@ -1,10 +1,7 @@
-package com.codewithmosh;
-
 import java.text.NumberFormat;
 import java.util.Date;
 
-public class Types
-{
+public class Types {
 
   public static void main(String[] args) {
     // write your code here
@@ -27,5 +24,8 @@ public class Types
     NumberFormat.getCurrencyInstance().format(123_434_123.98);
     // method chaining
 
+    // Switch cannot use long type
+
+    // Abstraction reduce coupling
   }
 }

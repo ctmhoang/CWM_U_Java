@@ -27,5 +27,7 @@ public class Types {
     // Switch cannot use long type
 
     // Abstraction reduce coupling
+
+    //Camel Hop
   }
 }
